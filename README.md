@@ -57,11 +57,14 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
-SQL Analysis and Insights
-Basic Queries
+## SQL Analysis and Insights
 
-**1. All Fiction Books**
+### **Basic SQL Queries**
 
+---
+
+### **1. All Fiction Books**
+```sql
 SELECT * FROM Books WHERE Genre = 'Fiction';
 
 **2. Books Published After 1950**
