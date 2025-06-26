@@ -57,14 +57,13 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
+## SQL Analysis and Insights
 
-# Business Problems and Solutions – Bookstore SQL Project
-
-
-
+### **Basic SQL Queries**
 
 
-### **1. All Fiction Books**
+
+ **1. All Fiction Books**
 ```sql
 SELECT * FROM Books WHERE Genre = 'Fiction';
 
