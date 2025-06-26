@@ -57,6 +57,8 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
+---
+
 ## SQL Analysis and Insights
 
 ### **Basic SQL Queries**
