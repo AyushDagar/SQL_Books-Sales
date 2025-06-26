@@ -57,95 +57,115 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
-SQL Analysis and Insights
-Basic Queries
-1. All Fiction Books
+**SQL Analysis and Insights
+Basic Queries**
+
+**1. All Fiction Books**
 
 SELECT * FROM Books WHERE Genre = 'Fiction';
-2. Books Published After 1950
+
+**2. Books Published After 1950**
 
 SELECT * FROM Books WHERE Published_Year > 1950;
-3. Customers from Canada
+
+**3. Customers from Canada**
 
 SELECT * FROM Customers WHERE Country = 'Canada';
-4. Orders Placed in November 2023
+
+**4. Orders Placed in November 2023**
 
 SELECT * FROM Orders 
 WHERE Order_Date BETWEEN '2023-11-01' AND '2023-11-30';
-5. Total Book Stock Available
+**
+5. Total Book Stock Available**
 
 SELECT SUM(Stock) AS Total_Stock FROM Books;
-6. Most Expensive Book
+
+**6. Most Expensive Book**
 
 SELECT * FROM Books ORDER BY Price DESC LIMIT 1;
-7. Customers Who Ordered More Than 1 Quantity
+
+**7. Customers Who Ordered More Than 1 Quantity**
 
 SELECT * FROM Orders WHERE Quantity > 1;
-8. Orders with Total Amount Over $20
+**
+8. Orders with Total Amount Over $20**
 
 SELECT * FROM Orders WHERE Total_Amount > 20;
-9. All Available Genres
+
+**9. All Available Genres**
 
 SELECT DISTINCT Genre FROM Books;
-10. Book with the Lowest Stock
+
+**10. Book with the Lowest Stock**
 
 SELECT * FROM Books ORDER BY Stock ASC LIMIT 1;
-11. Total Revenue Generated from All Orders
 
+**11. Total Revenue Generated from All Orders
+**
 SELECT SUM(Total_Amount) AS Revenue FROM Orders;
 Advanced Insights
-1. Total Number of Books Sold per Genre
+
+**1. Total Number of Books Sold per Genre**
 
 SELECT b.Genre, SUM(o.Quantity) AS TotalBooks
 FROM Books b
 JOIN Orders o ON b.Book_ID = o.Book_ID
 GROUP BY Genre;
-2. Average Price of Fantasy Genre Books
+
+**2. Average Price of Fantasy Genre Books**
 
 SELECT AVG(Price) AS averageprice 
 FROM Books 
 WHERE Genre = 'Fantasy';
-3. Customers Who Placed at Least 2 Orders
+
+**3. Customers Who Placed at Least 2 Orders**
 
 SELECT c.Name, o.Customer_ID, COUNT(o.Order_ID) AS TotalOrders
 FROM Orders o
 JOIN Customers c ON o.Customer_ID = c.Customer_ID
 GROUP BY o.Customer_ID, c.Name
 HAVING COUNT(o.Order_ID) >= 2;
-4. Most Frequently Ordered Book
+
+**4. Most Frequently Ordered Book**
 
 SELECT b.Book_ID, b.Title, COUNT(o.Order_ID) AS Total_Orders
 FROM Orders o
 JOIN Books b ON o.Book_ID = b.Book_ID
 GROUP BY b.Book_ID, b.Title
 ORDER BY Total_Orders DESC;
-5. Top 3 Most Expensive Fantasy Books
+
+**5. Top 3 Most Expensive Fantasy Books**
 
 SELECT * FROM Books
 WHERE Genre = 'Fantasy'
 ORDER BY Price DESC
 LIMIT 3;
-6. Total Quantity of Books Sold by Each Author
+
+**6. Total Quantity of Books Sold by Each Author**
 
 SELECT b.Author, SUM(o.Quantity) AS Total_Books_Sold
 FROM Orders o
 JOIN Books b ON o.Book_ID = b.Book_ID
 GROUP BY b.Author;
-7. Cities Where Customers Spent Over $30
+
+**7. Cities Where Customers Spent Over $30**
 
 SELECT DISTINCT c.City, o.Total_Amount
 FROM Orders o
 JOIN Customers c ON c.Customer_ID = o.Customer_ID
 WHERE Total_Amount > 30 
 ORDER BY o.Total_Amount DESC;
-8. Customer Who Spent the Most
+
+**8. Customer Who Spent the Most**
 
 SELECT o.Customer_ID, c.Name, SUM(o.Total_Amount) AS Money_Spent
 FROM Customers c
 JOIN Orders o ON c.Customer_ID = o.Customer_ID
 GROUP BY c.Customer_ID, c.Name
 ORDER BY Money_Spent DESC;
-9. Stock Remaining After Fulfilling Orders
+
+**9. Stock Remaining After Fulfilling Orders**
 
 SELECT b.Book_ID, b.Title, b.Stock,
        COUNT(o.Order_ID) AS Times_Ordered,
