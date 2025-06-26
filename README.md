@@ -63,6 +63,7 @@ CREATE TABLE Orders (
 
 
 
+
 ### **1. All Fiction Books**
 ```sql
 SELECT * FROM Books WHERE Genre = 'Fiction';
