@@ -57,47 +57,15 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
-## Business Problems and Solutions
 
-### 1. Count the Number of Movies vs TV Shows
+# Business Problems and Solutions – Bookstore SQL Project
 
-```sql
-SELECT 
-    type,
-    COUNT(*)
-FROM netflix
-GROUP BY 1;
-```
+---
 
-**Objective:** Determine the distribution of content types on Netflix.
-
-### 2. Find the Most Common Rating for Movies and TV Shows
+### 1. List All Fiction Books
 
 ```sql
-WITH RatingCounts AS (
-    SELECT 
-        type,
-        rating,
-        COUNT(*) AS rating_count
-    FROM netflix
-    GROUP BY type, rating
-),
-RankedRatings AS (
-    SELECT 
-        type,
-        rating,
-        rating_count,
-        RANK() OVER (PARTITION BY type ORDER BY rating_count DESC) AS rank
-    FROM RatingCounts
-)
-SELECT 
-    type,
-    rating AS most_frequent_rating
-FROM RankedRatings
-WHERE rank = 1;
-```
-
-**Objective:** Identify the most frequently occurring rating for each type of content.
+SELECT * FROM Books WHERE Genre = 'Fiction';
 
 ### 3. List All Movies Released in a Specific Year (e.g., 2020)
 
