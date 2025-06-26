@@ -60,10 +60,8 @@ CREATE TABLE Orders (
 
 # Business Problems and Solutions – Bookstore SQL Project
 
----
 
 
----
 
 ### **1. All Fiction Books**
 ```sql
