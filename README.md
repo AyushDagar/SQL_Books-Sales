@@ -62,19 +62,6 @@ CREATE TABLE Orders (
 
 ---
 
-### 1. List All Fiction Books
-
-```sql
-SELECT * FROM Books WHERE Genre = 'Fiction';
-
-2. Find Books Published After 1950
-
-SELECT * FROM Books WHERE Published_Year > 1950;
-
-
-### 3. List All Movies Released in a Specific Year (e.g., 2020)
-    SELECT * FROM Customers WHERE Country = 'Canada';
-
 
 ---
 
