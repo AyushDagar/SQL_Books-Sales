@@ -57,8 +57,8 @@ CREATE TABLE Orders (
     Total_Amount NUMERIC(10, 2)
 );
 
-**SQL Analysis and Insights
-Basic Queries**
+SQL Analysis and Insights
+Basic Queries
 
 **1. All Fiction Books**
 
@@ -101,8 +101,8 @@ SELECT DISTINCT Genre FROM Books;
 
 SELECT * FROM Books ORDER BY Stock ASC LIMIT 1;
 
-**11. Total Revenue Generated from All Orders
-**
+11. Total Revenue Generated from All Orders
+
 SELECT SUM(Total_Amount) AS Revenue FROM Orders;
 Advanced Insights
 
@@ -119,7 +119,7 @@ SELECT AVG(Price) AS averageprice
 FROM Books 
 WHERE Genre = 'Fantasy';
 
-**3. Customers Who Placed at Least 2 Orders**
+**3. Customers Who Placed at Least 2 Orders**grgrgr
 
 SELECT c.Name, o.Customer_ID, COUNT(o.Order_ID) AS TotalOrders
 FROM Orders o
