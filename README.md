@@ -72,7 +72,7 @@ SELECT * FROM Books WHERE Published_Year > 1950;
 
 SELECT * FROM Customers WHERE Country = 'Canada';
 
-**4. Orders Placed in November 2023**
+#4. Orders Placed in November 2023
 
 SELECT * FROM Orders 
 WHERE Order_Date BETWEEN '2023-11-01' AND '2023-11-30';
